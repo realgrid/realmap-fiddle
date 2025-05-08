@@ -8,7 +8,7 @@
 
 ### fiddle 주소
 
-- https://jsfiddle.net/gh/get/library/pure/realgrid/realmap-fiddle/tree/main/{{데모 폴더}}
+- `https://jsfiddle.net/gh/get/library/pure/realgrid/realmap-fiddle/tree/main/{{데모_폴더_경로}}`
 - ex
 ```
 https://jsfiddle.net/gh/get/library/pure/realgrid/realmap-fiddle/tree/main/maps/map
