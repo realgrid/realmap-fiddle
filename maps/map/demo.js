@@ -1,7 +1,7 @@
 const config = {
   title: '세계지도',
   map: [{
-    url: `../../assets/map/wooritech/v1/maps/geojson/world-low.geo.json`
+    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/world-low.geo.json'
   }],
   body: {
     projection: 'mercator'
