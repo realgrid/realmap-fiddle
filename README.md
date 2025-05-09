@@ -25,8 +25,8 @@ yarn fiddle
 https://jsfiddle.net/gh/get/library/pure/realgrid/realmap-fiddle/tree/main/{{데모_폴더_경로}}
 ```
 
-- 예를 들어, 데모의 폴더 이름이 `maps/map`인 경우, `{{데모_폴더_경로}}`를 `maps/map`로 바꿔주면 된다.
+- 예를 들어, 데모의 폴더 이름이 `map/map`인 경우, `{{데모_폴더_경로}}`를 `map/map`로 바꿔주면 된다.
 
 ```
-https://jsfiddle.net/gh/get/library/pure/realgrid/realmap-fiddle/tree/main/maps/map
+https://jsfiddle.net/gh/get/library/pure/realgrid/realmap-fiddle/tree/main/map/map
 ```
