@@ -21,7 +21,7 @@ const config = {
     visible: false
   },
   map: [{
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sido-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     padding: '3 0 0.8 2.5'
   }],
   body: {

@@ -1,9 +1,9 @@
 const config = {
   title: false,
   map: [{
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sido-low.geo.json',
-    url_1: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sido-low.geo.json',
-    url_2: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sigun-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
+    url_1: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
+    url_2: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     padding: 0.1,
     showDummies: true,
     insets: [],

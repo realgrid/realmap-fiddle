@@ -1,6 +1,6 @@
 const config = {
   map: [{
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/world-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
     exclude: ['ATA'],
     padding: '8 0 0 0'
   }],

@@ -3,7 +3,7 @@ const config = {
     visible: false
   },
   map: [{
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sigun-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     dokdo: 0.1,
     padding: '1.2 0 0 2'
   }],

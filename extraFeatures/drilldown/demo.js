@@ -8,14 +8,14 @@ const config = {
   },
   map: [{
     name: '시도',
-    url: 'https://cdn.realmap.co.kr/v1/maps/topojson/kr-sido-low.topo.json',
+    url: '/assets/map/wooritech/v1/maps/topojson/kr-sido-low.topo.json',
     dokdo: 0.1,
     showDummies: true,
     insets: [RealMap.preset('울릉도'), RealMap.preset('제주도')],
     padding: '0.8, 0.1, 0.1, 0.1'
   }, {
     name: '시군구',
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sigun-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     dokdo: 0,
     //0.1,
     showDummies: true,

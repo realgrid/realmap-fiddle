@@ -133,12 +133,12 @@ const config = {
   title: false,
   map: [{
     name: 'usa',
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/usa-state-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/usa-state-low.geo.json',
     exclude: ['AK', 'HI'],
     padding: '0 3'
   }, {
     name: 'world',
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/world-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
     exclude: ['MEX', 'CAN', 'CUB', 'HTI', 'DOM', 'JAM', 'BLZ', 'GTM', 'HND', 'PRI', 'BHS', 'CYM', 'BJN', 'SER', 'USG', 'TCA', 'BMU', 'VGB', 'VIR', 'SLV', 'NIC']
   }],
   legend: true,

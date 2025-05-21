@@ -37,7 +37,7 @@ const config = {
   }],
   map: [{
     name: 'usa',
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/usa-state-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/usa-state-low.geo.json',
     exclude: ['HI', 'AK'],
     padding: '0 0 -3 0'
   }],

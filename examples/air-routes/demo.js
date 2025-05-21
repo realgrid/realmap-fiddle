@@ -29,7 +29,7 @@ const config = {
     }
   }],
   map: [{
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/world-high.geo.json'
+    url: 'https://unpkg.com/realmap-collection/world-high.geo.json'
   }],
   axis: {
     grid: true

@@ -77,7 +77,7 @@ const config = {
   title: false,
   map: [{
     name: 'sido',
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sido-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     exclude: '37',
     padding: '0.8 0 0 0',
     showDummies: true

@@ -1,7 +1,7 @@
 const config = {
   title: false,
   map: [{
-    url: 'https://cdn.realmap.co.kr/v1/maps/geojson/kr-sigun-low.geo.json',
+    url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     showDummies: true,
     padding: '0.8 0 0 0',
     insets: [RealMap.preset('울릉도', {
