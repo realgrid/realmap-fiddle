@@ -1,0 +1,71 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RealChart 연동 데모</title>
+<style>
+html {
+	margin: 0px;
+}
+body {
+	margin: 20px 30px;
+}
+#realmap {
+	width: 850px;
+	height: 750px;
+    border: 1px solid lightgray;
+    margin-bottom: 20px;
+}
+
+#realchart {
+    width: 850px;
+    height: 400px;
+    border: 1px solid lightgray;
+}
+</style>
+<link href="https://unpkg.com/realmap/realmap-style.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://unpkg.com/realmap/realmap-export-style.css" rel="stylesheet" crossorigin="anonymous">
+
+<link href="https://unpkg.com/realchart/realchart-style.css" rel="stylesheet">
+<style>
+.green-layout {
+    background-color: #00880020;
+}
+.red-button {
+    color: red;
+}
+</style>
+
+
+
+
+<script type="text/javascript" src="https://unpkg.com/realmap/realmap-export.js"></script>
+<script type="text/javascript" src="https://unpkg.com/realmap/index.js"></script>
+<script type="text/javascript" src="https://unpkg.com/realchart/index.js"></script>
+
+
+<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded', function () {
+		try {
+			init();
+		} catch (err) {
+			alert(err);
+			console.error(err);
+		}
+	});	
+</script>
+
+  <script>
+    var realMapLic = "upVcPE+wPOl3H1t2EmYDS2ZHHsIGhYOFvAiOqCN7jMScsYfjJ8xYHvcnjNP/alBGvwgv6MHcLk1itlg31ZMil3Oqn1evi656nPf4p94GZoZW86HQ7cJ42ivX+FHs8+zj9zMi9WF5l9qh46/x0PJmMS+SagFF1WyO";
+  </script>
+   
+  <script>
+    var realChartLic = "upVcPE+wPOkOR/egW8JuxkM/nBOseBrflwxYpzGZyYkhw7qfHRQ+GiF0lY62mJi59ZMVrUYnpAi4dl0Na3nAO1vbelftwmJ2pzTSJoFVyNeLmrqK4xhR4pEWeiNi+KMau5bvSbq0a381NqSTTJH1R07raRDOH846a0WNeh/nPIWR4a3ICiOtQvh6ynFmCq23/ojYF+4TI+v9YLxChWwJkg==";
+  </script>
+</head>
+<body>
+	<div id="realmap"></div>
+    <div id="realchart"></div>
+	<div id="actions"></div>
+
+		</body></html>
