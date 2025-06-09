@@ -108,7 +108,7 @@ const config = {
         year,
         value
       }) => ({
-        x: year,
+        x: year + '',
         y: value
       }));
       const {
@@ -158,7 +158,7 @@ async function onChartLoaded(mapChart) {
         year,
         value
       }) => ({
-        x: year,
+        x: year + '',
         y: value
       }))
     }
