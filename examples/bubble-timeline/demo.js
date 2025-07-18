@@ -140,26 +140,24 @@ const onChartLoaded = async chart => {
     indicator.innerText = `${currentTime.getFullYear()}년 ${currentTime.getMonth() + 1}월`;
     const bubbleSeries = chart.seriesByType('bubble');
 
-    // 기존 지진 버블은 전부 지운다.
-    while (bubbleSeries.getLabeledPoints().length > 0) {
-      bubbleSeries.removeFirst(0);
-    }
-
-    // 현재 지진 데이터를 기준으로, 최근 지진 데이터를 가져와서 그린다.
-    // 매 틱마다 과거(BUBBLE_LIFETIME)부터 현재까지 발생한 지진을 새로 그린다.
+    // 현재 그려야 하는 지진 데이터를 필터링한다.
+    // 현재 시간 기준으로 1년 전부터 30일 후까지의 지진 데이터를 필터링한다.
     const fromTime = currentTime.getTime() - BUBBLE_LIFETIME * msOfDay;
     const toTime = currentTime.getTime() + 30 * msOfDay;
     const recentQuakes = [];
+    const prevPoints = bubbleSeries.findAll();
     for (const quake of originalQuakes) {
       const targetDate = new Date(quake.time).getTime();
       if (fromTime <= targetDate && targetDate <= toTime) {
         recentQuakes.push(quake);
       }
     }
-    for (const currentQuake of recentQuakes) {
-      // 지진 버블 추가
-      bubbleSeries.addPoint(currentQuake, -1, 0);
-    }
+
+    // 시간이 지나서 현재 데이터에 없는 버블을 제거한다.
+    bubbleSeries.removePointList(bubbleSeries.findAll().filter(p => !recentQuakes.some(recentQuake => recentQuake.id === p.id)));
+
+    // 새로 그려야 하는 버블을 추가한다.
+    bubbleSeries.addPointList(recentQuakes.filter(currentQuake => !prevPoints.some(q => q.id === currentQuake.id)));
   };
   const play = (timeStep = 0) => {
     toggleButton.innerText = '▮▮';
