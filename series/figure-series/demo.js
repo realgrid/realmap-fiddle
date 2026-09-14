@@ -138,7 +138,10 @@ const data = [{
 });
 const config = {
   title: false,
-  chart: {
+  credits: {
+    visible: false
+  },
+  general: {
     backgroundStyle: {
       backgroundColor: '#85c6f8'
     }
@@ -221,14 +224,15 @@ const config = {
     mapKeys: 'name',
     valueField: 'pm2_5',
     data,
-    visibleInLegend: false,
+    legend: -1,
     style: {
       opacity: 1
     },
     hoverStyle: {
-      stroke: 'white',
-      fill: 'inherit',
-      opacity: 0.8
+      filter: 'brightness(1.15)'
+      // stroke: 'white',
+      // fill: 'inherit',
+      // opacity: 0.8,
     }
   }, {
     type: 'figure',
@@ -268,7 +272,7 @@ const config = {
       visible: true,
       layoutOnly: true
     },
-    visibleInLegend: false
+    legend: -1
   }]
 };
 const tool = {

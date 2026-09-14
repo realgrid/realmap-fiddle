@@ -131,6 +131,9 @@ const data = [{
 }];
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     name: 'usa',
     url: 'https://unpkg.com/realmap-collection/usa-state-low.geo.json',
@@ -139,11 +142,15 @@ const config = {
   }, {
     name: 'world',
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
+    bounds: [-127, 23.5, -65, 51],
     exclude: ['MEX', 'CAN', 'CUB', 'HTI', 'DOM', 'JAM', 'BLZ', 'GTM', 'HND', 'PRI', 'BHS', 'CYM', 'BJN', 'SER', 'USG', 'TCA', 'BMU', 'VGB', 'VIR', 'SLV', 'NIC']
   }],
   legend: true,
   body: {
-    projection: 'mercator'
+    projection: 'mercator',
+    style: {
+      // fill: 'var(--area-color-1)',
+    }
   },
   annotations: [{
     front: true,
@@ -158,6 +165,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '미국 자연 명소 30곳',
     offsetX: 40,
@@ -183,7 +191,7 @@ const config = {
     type: 'map',
     name: 'world',
     map: 'world',
-    visibleInLegend: false,
+    legend: -1,
     nullStyle: {
       opacity: 1,
       fill: '#D4DFE3',
@@ -195,7 +203,7 @@ const config = {
     type: 'map',
     name: 'usa',
     map: 'usa',
-    visibleInLegend: false,
+    legend: -1,
     useMapData: true,
     tooltipText: '${name}',
     color: '#E5E5E5',
@@ -209,7 +217,7 @@ const config = {
       opacity: 0.3
     },
     minValue: 1e6,
-    visibleInLegend: false,
+    legend: -1,
     pointLabel: false,
     valueField: 'visitors',
     tooltipText: '${name} Visitors:<br><t style="font-weight:700;">${value}</t>',

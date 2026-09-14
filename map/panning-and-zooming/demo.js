@@ -1,8 +1,10 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
-    url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
-    exclude: ['ATA']
+    url: 'https://unpkg.com/realmap-collection/world-low.geo.json'
   }],
   axis: {
     grid: true
@@ -11,6 +13,8 @@ const config = {
     projection: 'equalearth',
     zoomable: true,
     zoom: 300,
+    panX: 127,
+    panY: -50,
     onClickArea: e => {
       const areaId = e.area.id;
       if (chart.body.zoom > 100) {
@@ -33,6 +37,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '지도 확대 및 이동',
     offsetX: 40,

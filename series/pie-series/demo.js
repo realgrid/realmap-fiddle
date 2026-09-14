@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     padding: '0.1 0'
@@ -36,20 +39,23 @@ const config = {
   },
   series: [{
     name: '행정구역경계(시도)',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-gender-ratio.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-gender-ratio.json',
     mapKeys: ['b-code', 'code'],
-    hoverColor: '#DBD4CE',
+    // hoverColor: '#DBD4CE',
     tooltipText: false,
     style: {
-      stroke: '#fff',
+      stroke: '#6d6d6d',
       strokeWidth: 0.7
+    },
+    hoverStyle: {
+      filter: 'brightness(0.95)'
     },
     pointColors: args => {
       const ratio = args.source.genderRatio;
       if (ratio < 1) return '#FFD5A3';
       return '#FCE7C8';
     },
-    visibleInLegend: false
+    legend: -1
   }, {
     type: "pie",
     name: '시도별 남녀 인구 비율(남/녀)',
@@ -77,7 +83,7 @@ const config = {
     },
     tooltipText: false,
     mapKeys: ['b-code', 'code'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-gender-ratio.json'
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-gender-ratio.json'
   }]
 };
 let chart;

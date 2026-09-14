@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   annotations: [{
     front: true,
     type: 'shape',
@@ -13,6 +16,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '세계 인구 밀도',
     offsetX: 40,
@@ -31,6 +35,7 @@ const config = {
   },
   body: {
     projection: 'equalearth'
+    // padding: '0 30'
   },
   legend: {
     location: 'left',
@@ -38,8 +43,11 @@ const config = {
   },
   colorScale: {
     location: 'bottom',
+    // series: 'main',
     display: 'legend',
-    logBase: 2,
+    // minValue: 1,
+    // maxValue: 100000,
+    logBase: 10,
     maxColor: '#f00',
     colors: [{
       stop: 0.5,
@@ -53,22 +61,26 @@ const config = {
         numberFormat: ',0',
         style: {
           fontSize: '0.9em'
+          // fontWeight: 'bold',
+          // fontFamily: 'Courier New',
+          // fill: '#558'
         }
       }
     },
+    // integralSteps: true,
     stepCount: 3,
     steps: [{
-      to: 100,
+      to: 2,
       fromColor: '0%',
       color: '33%',
       label: 'Green'
     }, {
-      from: 100,
-      to: 20000,
+      from: 2,
+      to: 4,
       color: '67%',
       label: 'Blue'
     }, {
-      to: 30000,
+      to: 5,
       color: '100%',
       label: 'Red'
     }]
@@ -76,7 +88,20 @@ const config = {
   series: [{
     name: 'main',
     idField: 'code3',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/world-population-density.json'
+    dataUrl: 'https://www.realmap.co.kr/assets/data/world-population-density.json',
+    // color: 'blue',
+    pointLabel: !true
+    // data: [{
+    //     id: 'KR',
+    //     name: 'Korea',
+    //     value: 123
+    // }, {
+    //     id: 'CN',
+    //     value: 532
+    // }, {
+    //     id: 'BR',
+    //     value: 235
+    // }]
   }]
 };
 let chart;

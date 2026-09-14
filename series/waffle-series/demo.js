@@ -2,18 +2,22 @@ const config = {
   templates: {
     '@series': {
       map: {
-        hoverColor: '#F1F0E9',
+        hoverColor: '#C0D2AC',
         pointLabel: false,
         allAreas: false,
         style: {
           stroke: '#fff',
           strokeWidth: 0.7
         },
+        hoverStyle: {
+          filter: 'none'
+        },
         tooltipText: '${name}<br />${qty} 지점'
       }
     }
   },
   title: false,
+  credits: false,
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     padding: '0.8 0 0.2 0',
@@ -36,6 +40,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '2019년 전국 서점 수 통계',
     offsetX: 40,
@@ -50,7 +55,10 @@ const config = {
     name: '행정구역경계(시도)',
     tooltipText: '${name}<br/>${qty}',
     mapKeys: ['b-code', 'id'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-bookstore.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-bookstore.json',
+    style: {
+      stroke: '#6d6d6d'
+    },
     pointColors: args => {
       const ratio = args.source.ratio;
       if (ratio < -0.5) return '#E4EFE7';
@@ -69,7 +77,7 @@ const config = {
     color: '#4D8771',
     tooltipText: false,
     mapKeys: ['b-code', 'id'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-bookstore.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-bookstore.json',
     valueField: 'qty',
     callout: true
   }]

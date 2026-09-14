@@ -20,9 +20,12 @@ const config = {
   title: {
     visible: false
   },
+  credits: false,
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
-    padding: '3 0 0.8 2.5'
+    padding: '0.7 0 0.2 1.2',
+    insets: ['백령도', '울릉도', '제주도'],
+    dokdo: 0.2
   }],
   body: {
     projection: 'mercator',
@@ -65,7 +68,7 @@ const config = {
     front: true,
     offsetX: 380,
     offsetY: 50,
-    text: '무효 투표수: <t style="font-weight: 700;">307.542</t>명',
+    text: '무효 투표수: <t style="font-weight: 700;">307,542</t>명',
     style: {
       textAlign: 'right',
       fill: 'black',
@@ -84,9 +87,9 @@ const config = {
   }],
   series: [{
     name: '지도',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/elections.json',
-    tooltipText,
-    visibleInLegend: false,
+    dataUrl: 'https://www.realmap.co.kr/assets/data/elections.json',
+    tooltipText: false,
+    legend: -1,
     pointColors: args => {
       const {
         lee,
@@ -103,7 +106,7 @@ const config = {
   }, {
     type: 'bar',
     name: '시도별 통계',
-    visibleInLegend: false,
+    legend: -1,
     categories,
     width: 60,
     valueField: 'percents',
@@ -122,11 +125,11 @@ const config = {
     pointLabel: {
       text: ['<t style="font-size: 14px">${name}</t>'].join('<br />')
     },
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/elections.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/elections.json',
     callout: {
       visible: true,
       style: {
-        stroke: '#fff',
+        stroke: '#2b2b2b',
         strokeWidth: 1,
         fill: 'black'
       }
@@ -145,11 +148,15 @@ const config = {
     }),
     tooltipText: false,
     pointLabel: {
-      text: ['<t style="font-size: 18px; font-weight: 700;">${name}</t><br />', '<t style="width: 30px;">이재명: </t><t style="opacity: 1;">16,147,738표</t>', '<t style="width: 30px;">윤석열: </t><t style="opacity: 1;">16,394,815표</t>', '<t style="width: 30px;">심상정: </t><t style="opacity: 1;">803,358표</t>', '<t style="width: 30px;">기타ㅤ: </t><t style="opacity: 1;">721,942표</t>'].join('<br />')
+      text: ['<t style="font-size: 18px; font-weight: 700;">${name}</t><br />', '<t style="width: 30px;">이재명: </t><t style="opacity: 1;">16,147,738표</t>', '<t style="width: 30px;">윤석열: </t><t style="opacity: 1;">16,394,815표</t>', '<t style="width: 30px;">심상정: </t><t style="opacity: 1;">803,358표</t>', '<t style="width: 30px;">기타ㅤ: </t><t style="opacity: 1;">721,942표</t>'].join('<br />'),
+      style: {
+        // textAlign: 'left',
+        // position: 'right'
+      }
     },
     data: [{
       value: [16147738, 16394815, 803358, 721942],
-      coord: [122.5, 38.2]
+      coord: [123.8, 37.6]
     }]
   }]
 };

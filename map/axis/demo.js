@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json'
   }],
@@ -129,19 +132,22 @@ const config = {
   series: [{
     name: '지도',
     useMapData: true,
-    hoverColor: '#83A8DC',
     tooltipText: '<t style="font-size:14; font-weight: 700;">${name}(${iso-a3})</t>',
     style: {
       stroke: '#fff',
       fill: '#B4CBEF',
       strokeWidth: 0.7
+    },
+    hoverStyle: {
+      filter: 'none',
+      strokeWidth: 1
     }
   }, {
     type: 'point',
-    visibleInLegend: false,
+    legend: -1,
     tooltipText: false,
     pointLabel: {
-      text: '<t style="font-size: 16px;">${name}</t><br /><t style="font-size: 16px; opacity: 0.7;">경도 ${lon}°C</t><br /><t style="font-size: 16px; opacity: 0.7;">위도 ${lat}°C</t>',
+      text: '<t style="font-size: 16px;">${name}</t><br /><t style="font-size: 16px; opacity: 0.7;">경도 ${lon}°</t><br /><t style="font-size: 16px; opacity: 0.7;">위도 ${lat}°</t>',
       textCallback: ({
         source
       }) => {
@@ -164,16 +170,16 @@ const config = {
       color: '#4170B7'
     }, {
       name: '서울',
-      coord: [127.0610, 37.3045],
+      coord: [127.061, 37.3045],
       color: '#4170B7'
     }]
   }, {
     type: 'point',
-    visibleInLegend: false,
+    legend: -1,
     tooltipText: false,
     pointLabel: {
       position: 'top',
-      text: '<t style="font-size: 16px; opacity: 0.7;">경도 ${lon}°C</t><br /><t style="font-size: 16px; opacity: 0.7;">위도 ${lat}°C</t>'
+      text: '<t style="font-size: 16px; opacity: 0.7;">경도 ${lon}°</t><br /><t style="font-size: 16px; opacity: 0.7;">위도 ${lat}°</t>'
     },
     style: {
       fill: 'none',
@@ -181,7 +187,7 @@ const config = {
     },
     data: [{
       name: '서울',
-      coord: [127.0610, 37.3045]
+      coord: [127.061, 37.3045]
     }]
   }]
 };

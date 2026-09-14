@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   annotations: [{
     front: true,
     type: 'shape',
@@ -13,6 +16,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '2000년 1월 ~ 2025년 2월 한반도, 일본 인근 지진(규모 6 이상) 현황',
     offsetX: 40,
@@ -49,7 +53,7 @@ const config = {
   }, {
     type: 'bubble',
     name: 'earthquakeBubble',
-    visibleInLegend: false,
+    legend: -1,
     tooltipText: '<t style="font-size: 18px">${place}</t><br /><t>${value}</t>',
     pointLabel: {
       textCallback: function (args) {
@@ -98,7 +102,7 @@ const onChartLoaded = async chart => {
   /**
    * 상태
    */
-  const rawData = await fetch('https://cdn.realmap.co.kr/v1/assets/data/earth-quake.json').then(res => res.json());
+  const rawData = await fetch('https://www.realmap.co.kr/assets/data/earth-quake.json').then(res => res.json());
 
   // 데이터 가공
   const originalQuakes = rawData.map(quake => ({

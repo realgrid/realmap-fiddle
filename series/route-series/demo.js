@@ -1,14 +1,17 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
     exclude: ["ATA"]
   }],
   body: {
     projection: 'mercator',
-    zoom: 1400,
+    zoom: 1500,
     panX: 143,
-    panY: 12,
+    panY: 20,
     style: {
       fill: '#0088ff20'
     }
@@ -39,7 +42,7 @@ const config = {
     }
   }],
   series: [{
-    visibleInLegend: false,
+    legend: -1,
     tooltipText: false,
     useMapData: true,
     hoverColor: '#83A8DC',
@@ -52,22 +55,30 @@ const config = {
     name: '무역 항로',
     tooltipText: false,
     color: '#E9715C',
+    routeMode: 'chart',
+    arrowWidth: 10,
+    arrowLength: 20,
+    lineWidth: 10,
     data: [{
       name: '완도 - 다자이후',
-      coords: [[127.32717, 34.47240], [130.05, 33.6]]
+      coords: [[127.32717, 34.47240], [130.05, 33.6]],
+      curveFactor: 0.3
     }, {
       name: '완도 - 닝보',
-      coords: [[127.32717, 34.47240], [121.9, 29.8]]
+      coords: [[127.32717, 34.47240], [121.9, 29.8]],
+      curveFactor: 1.5
     }, {
       name: '완도 - 초주, 연수(연운항, 롄윈강)',
-      coords: [[127.32717, 34.47240], [120.4, 34.2]]
+      coords: [[127.32717, 34.47240], [120.4, 34.2]],
+      curveFactor: -0.2
     }, {
       name: '완도 - 적산포(웨이하이, 법화원)',
-      coords: [[127.32717, 34.47240], [122.2, 37.3]]
+      coords: [[127.32717, 34.47240], [122.2, 37.3]],
+      curveFactor: -1.5
     }]
   }, {
     type: "point",
-    visibleInLegend: false,
+    legend: -1,
     name: '항구',
     tooltipText: false,
     radius: 8,
@@ -77,7 +88,22 @@ const config = {
       fill: 'white'
     },
     pointLabel: {
-      text: '<t style="font-size: 20px;">${id}</t><br /><t style="opacity: 0.7">${subId}</t>'
+      text: '<t style="font-size: 20px;">${id}</t><br /><t style="opacity: 0.7">${subId}</t>',
+      positionCallback: ({
+        point
+      }) => {
+        const id = point.source.id;
+        switch (id) {
+          case '완도':
+            return 'top';
+          case '다자이후':
+            return 'bottom';
+          case '닝보':
+            return 'bottom';
+          default:
+            return 'left';
+        }
+      }
     },
     data: [{
       id: '완도',
@@ -102,7 +128,7 @@ const config = {
     }]
   }, {
     type: "point",
-    visibleInLegend: false,
+    legend: -1,
     name: '국가',
     tooltipText: false,
     radius: 0,

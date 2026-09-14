@@ -2,18 +2,22 @@
 
 ## fiddle 생성 방법
 
-### 1. realmap core에서 exportFiddle.js 스크립트 실행.
+### 1. realmap 저장소에서 피들 예제 생성
 
-- realmap core 프로젝트 루트 경로에서 아래 명령어를 실행한다.
+- 피들 예제의 원본은 realmap 저장소의 `apps/realmap/fiddle` 폴더다. 데모를 고쳤다면 이 폴더의 사본도 함께 고친다.
+- realmap 저장소 루트에서 아래 명령어를 실행한다.
+
 ```shell
-yarn fiddle
+pnpm fiddle
 ```
-- 실행 후, realmap core 프로젝트 루트 경로에 .fiddle 폴더가 생성된다.
 
-### 2. .fiddle밑의 폴더를 realmap-fiddle 레파지토리 루트로 옮기기
+- realmap 저장소 옆의 `realmap-fiddle` 폴더에 예제마다 `demo.html`, `demo.js`를 바로 쓴다. 다른 위치에 있으면 `pnpm fiddle --out <realmap-fiddle 경로>`로 지정한다.
+- 라이선스 키는 realmap 문서 사이트의 키 파일(`apps/docs/public/*-lic.js`)을 읽어 넣는다.
 
-- 1번에서 생성한 .fiddle 밑의 모든 폴더를 realmap-fiddle 프로젝트의 루트 경로로 복사 붙여넣기한다
-- 새로 추가된 파일을 main 브랜치에 커밋하고 푸시한다.
+### 2. 변경 사항 커밋·푸시
+
+- realmap-fiddle 저장소에서 diff를 확인하고 main 브랜치에 커밋·푸시한다.
+- 릴리스 때는 npm 배포가 끝난 뒤에 한다. 피들은 unpkg의 최신 realmap을 불러온다.
 
 ### 3. Fiddle 주소 확인
 

@@ -85,6 +85,9 @@ const data = [{
 });
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     name: 'nation',
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
@@ -96,7 +99,8 @@ const config = {
     zoom: 140,
     panX: 6,
     panY: -10,
-    zoomable: false
+    zoomable: false,
+    movable: false
   },
   axis: {
     grid: true

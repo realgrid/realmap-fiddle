@@ -1,5 +1,5 @@
 const config = {
-  chart: {
+  general: {
     backgroundStyle: {
       backgroundColor: '#F2F1EF'
     }
@@ -7,6 +7,7 @@ const config = {
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
     exclude: ['ATA']
+    // padding: '10 0',
   }],
   annotations: [{
     front: true,
@@ -33,15 +34,29 @@ const config = {
     }
   }],
   title: false,
+  credits: false,
   body: {
     projection: 'mercator',
+    // projection: 'equalearth',
     style: {
       // fill: '#F2F1EF',
-    }
+    },
+    scrollable: true
   },
   axis: {
     grid: false
   },
+  // annotation: [
+  //     {
+  //         type: 'text',
+  //         front: true,
+  //         text: '2024 Peak Hours Spent in congestion',
+  //         style: { fontWeight: 700 },
+  //         offsetX: 20,
+  //         offsetY: 20,
+  //     },
+  // ],
+  // tooltip: false,
   series: [{
     type: 'map',
     nullStyle: {
@@ -51,7 +66,7 @@ const config = {
   }, {
     type: 'bubble',
     name: 'bubble',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/INRIX_2024_Global_Traffic_Scorecard.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/INRIX_2024_Global_Traffic_Scorecard.json',
     callout: true,
     minSize: 50,
     maxSize: 80,
@@ -94,18 +109,6 @@ const config = {
   }]
 };
 let chart;
-function setActions(container) {
-  createCheckBox(container, 'Debug', function (e) {
-    RealMap.setDebugging(_getChecked(e));
-    chart.render();
-  }, false);
-  createButton(container, 'Test', function (e) {});
-  createCheckBox(container, 'Zoomable', async function (e) {
-    config.body.zoomable = _getChecked(e);
-    await chart.loadAsync(config);
-  }, true);
-}
 async function init() {
   chart = await RealMap.createChartAsync(document, 'realmap', config, true);
-  setActions('actions');
 }

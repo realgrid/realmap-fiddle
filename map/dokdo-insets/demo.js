@@ -1,14 +1,29 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
-    url_1: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
-    url_2: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
+    // url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
+    // url: 'https://unpkg.com/realmap-collection/kr-dong-low.geo.json',
     padding: 0.1,
     showDummies: true,
-    insets: [],
-    insets_1: [RealMap.preset('제주도')],
-    insets_2: [RealMap.preset('울릉도')]
+    // insets: [],
+    dokdo: 0.2,
+    insets: [RealMap.preset('제주도', {
+      frame: undefined
+      // frame: '0.05 0.1',
+      // border: '-0.2 h-0.05 w-0.1 h+0.1 w+0.2 h'
+    }), RealMap.preset('울릉도'), RealMap.preset('백령도')]
+    // insets: [RealMap.preset('제주도', false), RealMap.preset('울릉도', false)],
+    // insets_1: [RealMap.preset('제주도')],
+    // insets_2: [RealMap.preset('울릉도')],
+    // insets_3: [
+    //     RealMap.preset('읍면동_제주도'),
+    //     RealMap.preset('읍면동_백령도'),
+    //     RealMap.preset('읍면동_울릉도'),
+    // ],
   }],
   axis: {
     grid: {
@@ -36,6 +51,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '한국 지도 - 독도 & Insets',
     offsetX: 40,
@@ -48,23 +64,43 @@ const config = {
   }],
   series: [{
     pointLabel: false,
-    hoverColor: '#9DB2CD',
+    // hoverColor: '#9DB2CD',
     nullHovering: true,
     nullStyle: {
       fill: '#D2DEEC',
-      stroke: '#fff',
+      stroke: '#6d6d6d',
       strokeWidth: 0.5
     },
     style: {
-      stroke: 'none',
+      stroke: '#6d6d6d',
       fill: '#6989AF'
     },
-    mapKeys: ['name', 'name'],
+    hoverStyle: {
+      filter: 'brightness(0.9)',
+      stroke: '#5d5d5d'
+    },
+    mapKeys: 'name',
+    // [ 'name', 'name' ],
     data: [{
       name: '제주특별자치도'
     }, {
       name: '경상북도'
     }]
+  }, {
+    type: 'point',
+    name: '전국 서점 수',
+    pointLabel: {
+      text: '${name}<br><t style="opacity:0.7">${qty}</t>'
+    },
+    width: '25',
+    color: 'red',
+    tooltipText: false,
+    mapKeys: ['b-code', 'id'],
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-bookstore.json',
+    valueField: 'qty',
+    style: {
+      opacity: 1
+    }
   }]
 };
 function createCheckBox(parentId, label, handler, checked) {

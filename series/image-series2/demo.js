@@ -35,10 +35,8 @@ const data = [{
   offset: [[1.5, 0], [0.1, 0.2]]
 }];
 const config = {
-  options: {
-    theme: ''
-  },
   title: false,
+  credits: false,
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     showDummies: true,
@@ -191,7 +189,7 @@ const config = {
       opacity: 1
     },
     tooltipText: null,
-    rootUrl: 'https://cdn.realmap.co.kr/v1/assets/images/parties/',
+    rootUrl: 'https://www.realmap.co.kr/assets/images/parties/',
     data
   }]
 };

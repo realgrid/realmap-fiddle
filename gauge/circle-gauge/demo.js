@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     padding: '0.8 0 0 0'
@@ -24,6 +27,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '산업단지 가동률',
     offsetX: 40,
@@ -41,6 +45,7 @@ const config = {
       stroke: '#fff'
     },
     style: {
+      // fill: '#b3cde0',
       stroke: '#9dafb0'
     }
   }, {
@@ -50,6 +55,7 @@ const config = {
       offset: 5,
       style: {
         textShadow: '0px 0px 5px white'
+        // fontSize: 14
       }
     },
     face: {
@@ -66,12 +72,14 @@ const config = {
         fontSize: '10pt'
       }
     },
+    // size: 100,
     radius: 32,
     innerRadius: 18,
     style: {
       stroke: 'none'
     },
     styleCallback: ctx => {
+      // console.log(ctx.source.value);
       const value = +ctx.source.value;
       if (value >= 80) {
         return {
@@ -89,7 +97,8 @@ const config = {
     },
     maxValue: 100,
     zoomLevel: 250,
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/산업단지가동률-남부.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/산업단지가동률-남부.json',
+    // callout: true,
     tooltipText: '<b>${name}</b>: ${value}'
   }]
 };

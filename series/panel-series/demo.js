@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     padding: '0.8 0 0 0'
@@ -20,6 +23,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '지역별 최저 기온',
     offsetX: 40,
@@ -61,7 +65,7 @@ const config = {
       strokeWidth: 1,
       stroke: '#4A83B8'
     },
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-sido-weather.json'
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-sido-weather.json'
   }]
 };
 let chart;

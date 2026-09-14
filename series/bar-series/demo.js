@@ -2,7 +2,7 @@ const config = {
   templates: {
     '@series': {
       map: {
-        hoverColor: '#d9dcd6',
+        // hoverColor: '#d9dcd6',
         pointLabel: false,
         allAreas: false,
         style: {
@@ -13,14 +13,26 @@ const config = {
       }
     }
   },
+  general: {
+    dragAction: 'zoom'
+  },
   title: false,
+  credits: false,
   map: [{
-    url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
-    padding: '0.8 0 0.3 0'
+    url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json'
+    // padding: '0.8 0 0.3 0',
+    // insets: ['제주도', '울릉도'],
+    // insets: ['제주도_B', '울릉도_B']
   }],
   body: {
     projection: 'mercator',
     zoomable: true
+  },
+  axis: {
+    crosshair: true
+  },
+  zoomPanel: {
+    verticalAlign: 'bottom'
   },
   annotations: [{
     front: true,
@@ -50,7 +62,11 @@ const config = {
     name: '행정구역경계(시도)',
     tooltipText: '${name}<br/>${qty}',
     mapKeys: ['b-code', 'id'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-bookstore.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-bookstore.json',
+    hoverStyle: {
+      stroke: '#6d6d6d'
+    },
+    // hiddenAreas: ['5000000000'],
     pointColors: args => {
       const ratio = args.source.ratio;
       if (ratio < -0.5) return '#DCEEF3';
@@ -61,7 +77,6 @@ const config = {
   }, {
     type: 'bar',
     name: '전국 서점 수',
-    width: 40,
     pointLabel: {
       text: '${name}<br><t style="opacity:0.7">${qty}</t>'
     },
@@ -69,7 +84,7 @@ const config = {
     color: '#35A1BD',
     tooltipText: false,
     mapKeys: ['b-code', 'id'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-bookstore.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-bookstore.json',
     valueField: 'qty',
     style: {
       opacity: 1

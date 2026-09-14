@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   annotations: [{
     front: true,
     type: 'shape',
@@ -25,8 +28,7 @@ const config = {
     }
   }],
   map: [{
-    url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
-    exclude: ['ATA']
+    url: 'https://unpkg.com/realmap-collection/world-low.geo.json'
   }],
   body: {
     projection: 'equalEarth'
@@ -37,46 +39,51 @@ const config = {
   colorScale: {
     maxColor: '#b10303',
     stepCount: 9,
+    // nullStyle: {
+    //     fill: 'white',
+    // },
+    // showNull: false,
+    // -4.3122134 2.4297276
     steps: [{
       from: -4.5,
       to: -2,
-      color: '#D0EFFF'
+      color: '#6794dc'
     }, {
       from: -2,
       to: -1.5,
-      color: '#B0DFF1'
+      color: '#78a9e2'
     }, {
       from: -1.5,
       to: -1,
-      color: '#76C1D8'
+      color: '#a4c6ec'
     }, {
       from: -1,
       to: -0.5,
-      color: '#59B2CB'
+      color: '#f2f6fc'
     }, {
       from: -0.5,
       to: 0,
-      color: '#fff'
+      color: '#fff0f0'
     }, {
       from: 0,
       to: 0.5,
-      color: '#E0B2D8'
+      color: '#ffc0c0'
     }, {
       from: 0.5,
       to: 1,
-      color: '#BE9ECD'
+      color: '#ff9494'
     }, {
       from: 1,
       to: 1.5,
-      color: '#9F8CC2'
+      color: '#ff5757'
     }, {
       from: 1.5,
       to: 2,
-      color: '#7E79B7'
+      color: '#ff2323'
     }, {
       from: 2,
       to: 2.5,
-      color: '#5E66AC'
+      color: '#b10303'
     }]
   },
   series: [{
@@ -84,6 +91,7 @@ const config = {
     useMapData: true,
     color: 'white',
     hoverColor: '#808080',
+    //tooltipText: '<t style="font-size: 20px; font-weight: 700;">${name}</t><br /><t style="opacity: 0.7; font-weight: 700;">온도편차: ${value}°C</t>',
     tooltipText: '<b>${name}</b><br/><t>온도편차: ${value}°C</t>',
     style: {
       stroke: '#6d6d6d',
@@ -116,7 +124,7 @@ const onChartLoaded = async chart => {
   /**
    * 상태
    */
-  const anomalies = await fetch('https://cdn.realmap.co.kr/v1/assets/data/temperature-anomaly-full.csv').then(res => res.text().then(data => data.split('\n').filter(v => v).filter((_, i) => i > 0).map(line => {
+  const anomalies = await fetch('https://www.realmap.co.kr/assets/data/temperature-anomaly-full.csv').then(res => res.text().then(data => data.split('\n').filter(v => v).filter((_, i) => i > 0).map(line => {
     const [name, code, year, anomaly] = line.split(',').map(v => v.trim());
     return {
       name,

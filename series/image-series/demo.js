@@ -3,6 +3,7 @@ const config = {
     theme: ''
   },
   title: false,
+  credits: false,
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     showDummies: true,
@@ -44,13 +45,15 @@ const config = {
     }
   }],
   series: [{
-    hoverEffect: 'none',
-    hoverColor: '#E3E3E3',
     tooltipText: '${id}',
     mapKeys: ['name', 'id'],
     colorField: 'color',
     style: {
       stroke: '#fff'
+    },
+    // hoverColor: '#E3E3E3',
+    hoverStyle: {
+      filter: 'brightness(1.05)'
     },
     data: [{
       id: '서울특별시',
@@ -122,7 +125,7 @@ const config = {
       }
     },
     tooltipText: false,
-    rootUrl: 'https://cdn.realmap.co.kr/v1/assets/images/kr-sido-woori/',
+    rootUrl: 'https://www.realmap.co.kr/assets/images/kr-sido-woori/',
     callout: {
       visible: true,
       style: {

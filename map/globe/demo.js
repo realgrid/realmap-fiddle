@@ -1,8 +1,15 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json'
   }],
+  body: {
+    projection: 'orthographic',
+    zoomable: true
+  },
   axis: {
     grid: true
   },
@@ -19,6 +26,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '구 형태의 지도 회전',
     offsetX: 40,
@@ -29,10 +37,6 @@ const config = {
       fontWeight: 700
     }
   }],
-  body: {
-    projection: 'orthographic',
-    zoomable: true
-  },
   series: [{
     useMapData: true,
     style: {

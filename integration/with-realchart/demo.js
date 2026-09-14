@@ -4,17 +4,9 @@
  */
 const config = {
   title: false,
-  asset: [{
-    type: 'pattern',
-    id: 'pattern-3',
-    pattern: 3,
-    style: {
-      fill: '#F87986'
-    },
-    backgroundStyle: {
-      fill: '#FFE8E2'
-    }
-  }],
+  credits: {
+    visible: false
+  },
   map: [{
     url: `https://unpkg.com/realmap-collection/world-high.geo.json`,
     exclude: ['ATA', 'GRL']
@@ -80,30 +72,39 @@ const config = {
   },
   series: [{
     mapKeys: ['iso-a2', 'id'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/gdp-growth-by-country.json',
-    hoverColor: '#f2f6fc',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/gdp-growth-by-country.json',
     tooltipText: '<t style="font-weight: bold;">${name} 2023년 GDP 성장률: ${value}</t>',
     style: {
       stroke: '#000',
       strokeWidth: 0.5,
       cursor: 'pointer'
     },
+    hoverStyle: {
+      stroke: '#5d5d5d',
+      filter: 'brightness(0.9)',
+      strokeWidth: 1.5
+    },
+    selectStyle: {
+      stroke: '#5d5d5d',
+      strokeWidth: 2,
+      filter: 'none'
+    },
     onPointClick: args => {
       const {
         id
       } = args.source;
-      const point = chart.seriesByType('map').pointByProp('iso-a2', id);
+      const map = mapChart.seriesByType('map');
+      const point = map.pointByProp('iso-a2', id);
       if (window.prevPoint2) {
-        window.prevPoint2.setSelected(false);
+        map.unselect(window.prevPoint2);
       }
-      point.setSelected(true);
-      chart.render();
+      map.select(point);
       window.prevPoint2 = point;
       const foundData = chartData.find(data => data.id === id);
       if (!foundData) {
         return;
       }
-      chart.body.zoomToArea(point.area.id, 0.3);
+      mapChart.body.zoomToArea(point.area.id, 0.3);
       const seriesData = foundData.data.map(({
         year,
         value
@@ -128,7 +129,7 @@ const config = {
   }
 };
 async function onChartLoaded(mapChart) {
-  window.chartData = await fetch('https://cdn.realmap.co.kr/v1/assets/data/gdp-growth-by-country.json').then(res => res.json());
+  window.chartData = await fetch('https://www.realmap.co.kr/assets/data/gdp-growth-by-country.json').then(res => res.json());
   const point = mapChart.seriesByType('map').pointByProp('iso-a2', 'KR');
   window.prevPoint2 = point;
   point?.setSelected(true);

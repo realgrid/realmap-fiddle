@@ -1,4 +1,30 @@
 const config = {
+  title: false,
+  credits: false,
+  annotations: [{
+    front: true,
+    type: 'shape',
+    shape: 'rectangle',
+    offsetX: 20,
+    offsetY: 20,
+    width: 10,
+    height: 28,
+    style: {
+      fill: '#83A8DC'
+    }
+  }, {
+    front: true,
+    // scope: 'body',
+    type: 'text',
+    text: 'Fill Assets(Pattern, Gradient)',
+    offsetX: 40,
+    offsetY: 20,
+    height: 28,
+    style: {
+      fontSize: '15pt',
+      fontWeight: 700
+    }
+  }],
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
     exclude: ['ATA'],
@@ -118,15 +144,6 @@ const config = {
     color: ['#FAF09A', '#FD7C6B'],
     dir: 'up'
   }],
-  title: {
-    type: 'text',
-    text: 'Fill Assets(Pattern, Gradient)',
-    align: 'left',
-    style: {
-      fontSize: '15pt',
-      fontWeight: 700
-    }
-  },
   body: {
     projection: 'mercator',
     zoomable: false
@@ -141,7 +158,13 @@ const config = {
       visible: true,
       effect: 'outline'
     },
+    // style: {
+    //     fill: 'url(#pattern-2)',
+    // },
     pointColors: ['url(#pattern-0)', 'url(#pattern-1)', 'url(#pattern-2)', 'url(#pattern-3)', 'url(#pattern-4)', 'url(#pattern-5)', 'url(#pattern-6)', 'url(#pattern-7)'],
+    hoverStyle: {
+      stroke: '#6d6d6d'
+    },
     data: [{
       id: 'CHN'
     }, {

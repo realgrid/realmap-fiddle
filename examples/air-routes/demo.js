@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   annotations: [{
     front: true,
     verticalAlign: 'bottom',
@@ -51,7 +54,7 @@ const config = {
     }
   }, {
     type: 'point',
-    visibleInLegend: false,
+    legend: -1,
     pointLabel: {
       visible: true,
       effect: 'outline'
@@ -81,10 +84,14 @@ const config = {
     }, {
       "name": "호치민",
       "coord": [106.6297, 10.8231]
-    }, {
+    },
+    // { "name": "송샨", "coord": [121.5525, 25.0694] },
+    {
       "name": "타오위안",
       "coord": [121.2168, 25.0128]
-    }, {
+    },
+    // { "name": "오키나와", "coord": [127.6809, 26.2124] },
+    {
       "name": "후쿠오카",
       "coord": [130.4017, 33.5904]
     }, {
@@ -102,7 +109,7 @@ const config = {
     }]
   }, {
     type: 'point',
-    visibleInLegend: false,
+    legend: -1,
     pointLabel: {
       visible: true,
       effect: 'outline'
@@ -112,10 +119,15 @@ const config = {
       fill: '#FF6B6B',
       stroke: '#fff'
     },
-    data: [{
+    data: [
+    // { "name": "김포", "coord": [126.7831, 37.5583] },
+    {
       "name": "인천",
       "coord": [126.7052, 37.4563]
-    }, {
+    },
+    // { "name": "청주", "coord": [127.4956, 36.6372] },
+    // { "name": "군산", "coord": [126.7160, 35.9676] },
+    {
       "name": "부산",
       "coord": [129.0756, 35.1796]
     }, {
@@ -127,7 +139,7 @@ const config = {
     }]
   }, {
     type: 'route',
-    visibleInLegend: false,
+    legend: -1,
     style: {
       fill: '#FFD700',
       stroke: '#FFD700',

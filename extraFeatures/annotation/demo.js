@@ -1,7 +1,6 @@
 const config = {
-  title: {
-    visible: false
-  },
+  title: false,
+  credits: false,
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     dokdo: 0.1,
@@ -16,34 +15,25 @@ const config = {
   annotations: [{
     front: true,
     type: 'shape',
-    scope: 'container',
     shape: 'rectangle',
-    offsetX: 30,
-    offsetY: 30,
-    width: 12,
-    height: 32,
+    offsetX: 20,
+    offsetY: 20,
+    width: 10,
+    height: 28,
     style: {
       fill: '#FD787F'
     }
   }, {
     front: true,
+    // scope: 'body',
+    type: 'text',
     text: '대설 특보',
-    scope: 'container',
-    offsetX: 50,
-    offsetY: 30,
-    height: 32,
+    offsetX: 40,
+    offsetY: 20,
+    height: 28,
     style: {
-      textAlign: 'right',
-      fill: 'black',
-      fontSize: 30,
+      fontSize: '15pt',
       fontWeight: 700
-    },
-    backgroundStyle: {
-      stroke: 'none',
-      strokeWidth: '0',
-      padding: '8 12 2 12',
-      fill: 'none',
-      rx: 6
     }
   }, {
     front: true,
@@ -113,9 +103,8 @@ const config = {
   series: [{
     name: '지도',
     hoverColor: '#919191',
-    tooltipText: false,
-    visibleInLegend: false,
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-snow.json',
+    legend: -1,
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-snow.json',
     tooltipText: '<t style="font-size: 18px; font-weight: 700;">${name}</t><br /><t style="opacity: 0.7;">${alert}</t>',
     pointColors: args => {
       const snowAlert = args.source.alert;
@@ -132,11 +121,6 @@ const config = {
     type: 'point',
     radius: 8,
     shape: 'diamond',
-    style: {
-      stroke: 'orange',
-      fill: 'white',
-      strokeWidth: 4
-    },
     style: {
       color: 'white'
     },

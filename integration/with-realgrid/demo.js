@@ -4,17 +4,9 @@
  */
 const config = {
   title: false,
-  asset: [{
-    type: 'pattern',
-    id: 'pattern-3',
-    pattern: 3,
-    style: {
-      fill: '#F87986'
-    },
-    backgroundStyle: {
-      fill: '#FFE8E2'
-    }
-  }],
+  credits: {
+    visible: false
+  },
   map: [{
     url: `https://unpkg.com/realmap-collection/world-high.geo.json`,
     exclude: ['ATA', 'GRL']
@@ -80,16 +72,25 @@ const config = {
   },
   series: [{
     mapKeys: ['iso-a3', 'countryCode'],
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/world-economic2.json',
-    hoverColor: '#f2f6fc',
-    tooltipText: '<t style="font-weight: bold;">${name}(${gdpGrowth})</t>',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/world-economic2.json',
+    tooltipText: '<t style="font-weight: bold;">${name}(${value})</t>',
     style: {
       stroke: '#000',
       strokeWidth: 0.5,
       cursor: 'pointer'
     },
+    hoverStyle: {
+      stroke: '#5d5d5d',
+      filter: 'brightness(0.9)',
+      strokeWidth: 1.5
+    },
+    selectStyle: {
+      stroke: '#5d5d5d',
+      strokeWidth: 2,
+      filter: 'none'
+    },
     onPointClick: args => {
-      const point = chart.seriesByType('map').pointByProp('iso-a3', args.source.countryCode);
+      const point = args.chart.seriesByType('map').pointByProp('iso-a3', args.source.countryCode);
       if (window.prevPoint2) {
         window.prevPoint2.setSelected(false);
       }
@@ -167,7 +168,7 @@ async function onChartLoaded() {
     fieldName: f.fieldName,
     styleName: 'normal-cell'
   })));
-  const data = await fetch('https://cdn.realmap.co.kr/v1/assets/data/world-economic2.json').then(res => res.json());
+  const data = await fetch('https://www.realmap.co.kr/assets/data/world-economic2.json').then(res => res.json());
   provider.setRows(data);
 
   // gridView 설정

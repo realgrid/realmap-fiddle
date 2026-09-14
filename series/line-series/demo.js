@@ -75,6 +75,9 @@ const data = [{
 });
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     name: 'sido',
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
@@ -120,7 +123,6 @@ const config = {
     name: '전국',
     type: 'line',
     curved: true,
-    area: true,
     area: {
       visible: true,
       style: {

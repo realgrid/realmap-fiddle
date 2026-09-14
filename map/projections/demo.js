@@ -1,18 +1,18 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json'
   }],
   axis: {
-    grid: true
+    grid: true,
+    crosshair: !true
   },
   body: {
     zoomable: true,
-    projection: ''
-    // projection: 'mercator',
-    // projection: 'equalearth',
-    // projection: 'miller',
-    // projection: 'orthographic',
+    projection: undefined
   },
   annotations: [{
     front: true,
@@ -27,6 +27,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '도법 동적 변경',
     offsetX: 40,

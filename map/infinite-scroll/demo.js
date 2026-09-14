@@ -1,16 +1,43 @@
 const config = {
-  body: {
-    projection: 'equalearth',
-    zoomable: true,
-    scrollable: true,
-    scroll: 160
-  },
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json'
+    // url: 'https://unpkg.com/realmap-collection/usa-state-low.geo.json',
+    // exclude: ['ATA']
+    // useOffset: true,
   }],
+  body: {
+    projection: 'equalearth',
+    // projection: 'mercator',
+    zoomable: true,
+    scrollable: true,
+    scroll: 150,
+    mapBackground: {
+      visible: true,
+      style: {
+        fill: '#0088ff10'
+      }
+    }
+  },
   axis: {
-    grid: true
+    crosshair: true,
+    grid: {
+      visible: true,
+      line: {
+        step: 30
+      }
+    },
+    tick: {
+      visible: true,
+      label: {
+        style: {
+          fill: 'red'
+        }
+      }
+    }
   },
   annotations: [{
     front: true,
@@ -40,6 +67,13 @@ const config = {
       visible: true,
       effect: 'outline'
     },
+    hoverStyle: {
+      strokeWidth: 2,
+      filter: 'brightness(1.07)'
+    },
+    style: {
+      stroke: '#ccc'
+    },
     data: [{
       id: 'KOR',
       value: 123
@@ -49,7 +83,18 @@ const config = {
     }, {
       id: 'BRA',
       value: 235
-    }]
+    }],
+    nullHovering: true
+  }, {
+    type: 'point',
+    data: [{
+      coord: [1, 1],
+      name: 'xxx'
+    }, {
+      coord: [127, 37],
+      name: 'zzz'
+    }],
+    pointLabel: true
   }]
 };
 let chart;

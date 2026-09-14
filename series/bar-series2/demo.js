@@ -21,6 +21,9 @@ const data = [{
 }];
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
     exclude: ['ATA'],
@@ -59,7 +62,7 @@ const config = {
     verticalAlign: 'bottom',
     offsetX: 50,
     offsetY: 120,
-    imageUrl: 'https://cdn.realmap.co.kr/v1/assets/images/minecraft/alex.png'
+    imageUrl: 'https://www.realmap.co.kr/assets/images/minecraft/alex.png'
   }],
   legend: {
     location: 'body',

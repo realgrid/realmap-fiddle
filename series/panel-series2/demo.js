@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     padding: '0.8 0 0 0',
@@ -18,6 +21,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '지역별 기상 예보(서울, 세종, 광주, 제주, 부산)',
     offsetX: 40,
@@ -35,7 +39,7 @@ const config = {
   series: [{
     name: '시도',
     tooltipText: '<t style="font-size: 15px; font-weight: 700;">${name}</t><br /><t style="opacity=0.7; font-size: 16px;">최저: ${tempMin}°Cㅤ최대: ${tempMax}°C</t>',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-sido-weather-2.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-sido-weather-2.json',
     bringToFront: true,
     hoverColor: '#83A8DC',
     style: {
@@ -55,7 +59,8 @@ const config = {
     header: {
       style: {
         strokeWidth: 0
-      }
+      },
+      backgroundStyle: {}
     },
     body: {
       text: '최저: <t style="opacity: 0.7;">${tempMin}°C</t>ㅤ최대: <t style="opacity: 0.7;">${tempMax}°C</t>'
@@ -66,7 +71,7 @@ const config = {
       fill: '#628ECB',
       strokeWidth: 0.2
     },
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-sido-weather-2.json'
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-sido-weather-2.json'
   }]
 };
 let chart;

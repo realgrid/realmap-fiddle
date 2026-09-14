@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sigun-low.geo.json',
     showDummies: true,
@@ -27,6 +30,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '2024년 2월 전국 경제활동인구',
     offsetX: 40,
@@ -38,7 +42,10 @@ const config = {
     }
   }],
   body: {
-    projection: 'mercator'
+    projection: 'mercator',
+    style: {
+      // fill: 'var(--area-color-1)',
+    }
   },
   colorScale: {
     maxColor: '#4492F5',
@@ -81,8 +88,8 @@ const config = {
     name: '행정구역경계(시군구)',
     tooltipText: '${name}<br/>${value;;#,0.#}명',
     mapKeys: ['b-code', 'id'],
-    visibleInLegend: false,
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/active-population.json',
+    legend: -1,
+    dataUrl: 'https://www.realmap.co.kr/assets/data/active-population.json',
     hoverColor: `#C3C3C3`,
     style: {
       stroke: '#fff',
@@ -91,6 +98,7 @@ const config = {
   }, {
     type: 'bubble',
     name: '시도별 경제활동인구',
+    // tooltipText: false,
     pointLabel: {
       text: '${name}<br><t style="opacity:0.7">${laborForce;;#,0.#}</t>',
       effect: 'outline'
@@ -101,9 +109,23 @@ const config = {
       stroke: '#FFAB70',
       strokeWidth: 1.5
     },
+    // styleCallback: () => ({ fill: '#FFDB9A', stroke: '#ccc' }),
     mapKeys: ['b-code', 'b-code'],
     valueField: 'laborForce',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/sido-labor-force.json'
+    dataUrl: 'https://www.realmap.co.kr/assets/data/sido-labor-force.json'
+    // callout: {
+    //     visible: true,
+    //     anchorPoint: {
+    //         visible: !false,
+    //         style: {
+    //             stroke: 'blue',
+    //             fill: 'blue',
+    //         },
+    //     },
+    //     style: {
+    //         stroke: 'red',
+    //     },
+    // },
   }]
 };
 let chart;

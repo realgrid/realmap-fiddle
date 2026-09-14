@@ -13,6 +13,11 @@ const $data = {
 let $selected = '브라질 상파울루';
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
+  // title: 'S전자 글로벌 네트워크',
+  // subtitle: '지역 총괄',
   map: [{
     name: 'world',
     url: 'https://unpkg.com/realmap-collection/world-low.geo.json',
@@ -20,7 +25,9 @@ const config = {
     exclude: ['ATA']
   }],
   body: {
+    // projection: 'miller',
     zoomable: true,
+    // style: { fill: '#0088ff20' },
     style: {
       fill: '#fff'
     }
@@ -39,6 +46,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: 'S전자 글로벌 네트워크',
     offsetX: 40,
@@ -49,6 +57,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     align: 'right',
     text: '지역총괄',
@@ -75,6 +84,7 @@ const config = {
     data: $data[$selected].map(country => ({
       id: country
     })),
+    // hoverColor: '#B4CBEF',
     hoverColor: '#83A8DC',
     hoverEffect: 'none'
   }, {
@@ -86,6 +96,8 @@ const config = {
         chart.series.updateOption('data', $data[e.name].map(country => ({
           id: country
         })));
+        // config.series[0].data = $data[e.name].map((country) => ({ id: country })),
+        // await chart.loadAsync(config);
       }
     },
     style: {

@@ -1,5 +1,8 @@
 const config = {
   title: false,
+  credits: {
+    visible: false
+  },
   map: [{
     url: 'https://unpkg.com/realmap-collection/kr-sido-low.geo.json',
     padding: '0.8 0 0.3 0'
@@ -20,6 +23,7 @@ const config = {
     }
   }, {
     front: true,
+    // scope: 'body',
     type: 'text',
     text: '전국 장애인 복지관 현황',
     offsetX: 40,
@@ -31,7 +35,7 @@ const config = {
     }
   }],
   series: [{
-    visibleInLegend: false,
+    legend: -1,
     tooltipText: '${id}<br />복지관: ${welfareCount}개',
     mapKeys: ['name', 'id'],
     hoverColor: '#C0D2AC',
@@ -50,11 +54,11 @@ const config = {
       if (welfareCount < 50) return '#C7D9DD';
       return '#EEF1DA';
     },
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-welfare-center-statistic.json'
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-welfare-center-statistic.json'
   }, {
     type: 'point',
     name: '복지관 분포',
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-welfare-center.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-welfare-center.json',
     tooltipText: false,
     radius: 3,
     pointLabel: {
@@ -81,7 +85,7 @@ const config = {
     pointLabel: {
       text: '<t style="font-size: 16px">${id}</t><br/><t style="opacity: 0.7">복지관: ${welfareCount}개</t>'
     },
-    dataUrl: 'https://cdn.realmap.co.kr/v1/assets/data/kr-welfare-center-statistic.json',
+    dataUrl: 'https://www.realmap.co.kr/assets/data/kr-welfare-center-statistic.json',
     callout: true,
     style: {
       fill: '#858FD5',
