@@ -84,25 +84,27 @@ const config = {
       filter: 'brightness(0.9)',
       strokeWidth: 1.5
     },
-    selectStyle: {
-      stroke: '#5d5d5d',
-      strokeWidth: 2,
-      filter: 'none'
+    // 선택은 selection을 켠 시리즈에서만 된다. API 선택도 같다.
+    selection: {
+      visible: true,
+      style: {
+        stroke: '#5d5d5d',
+        strokeWidth: 2,
+        filter: 'none'
+      }
     },
     onPointClick: args => {
-      const point = args.chart.seriesByType('map').pointByProp('iso-a3', args.source.countryCode);
-      if (window.prevPoint2) {
-        window.prevPoint2.setSelected(false);
-      }
+      const map = args.chart.seriesByType('map');
+      const point = map.pointByProp('iso-a3', args.source.countryCode);
       const {
         grid: {
           gridView,
           provider
         }
       } = window;
-      point.setSelected(true);
-      chart.render();
-      window.prevPoint2 = point;
+
+      // select는 기존 선택을 지우고 교체하며 다시 그리기도 요청한다.
+      map.select(point);
       const {
         countryCode
       } = args.source;
@@ -172,20 +174,16 @@ async function onChartLoaded() {
   provider.setRows(data);
 
   // gridView 설정
-  let prevSelection = null;
   gridView.displayOptions.selectionStyle = 'singleRow';
   gridView.onSelectionChanged = (_, clickData) => {
     const {
       startItem
     } = clickData;
     const code = gridView.getValue(startItem, 'countryCode');
-    const point = chart.seriesByType('map').pointByProp('iso-a3', code);
+    const map = chart.seriesByType('map');
+    const point = map.pointByProp('iso-a3', code);
     if (point) {
-      if (prevSelection) {
-        prevSelection.setSelected(false);
-      }
-      point.setSelected(true);
-      prevSelection = point;
+      map.select(point);
       chart.body.zoomToArea(point.area.id, 0.3);
     }
   };

@@ -84,10 +84,14 @@ const config = {
       filter: 'brightness(0.9)',
       strokeWidth: 1.5
     },
-    selectStyle: {
-      stroke: '#5d5d5d',
-      strokeWidth: 2,
-      filter: 'none'
+    // 선택은 selection을 켠 시리즈에서만 된다. API 선택도 같다.
+    selection: {
+      visible: true,
+      style: {
+        stroke: '#5d5d5d',
+        strokeWidth: 2,
+        filter: 'none'
+      }
     },
     onPointClick: args => {
       const {
@@ -95,11 +99,9 @@ const config = {
       } = args.source;
       const map = mapChart.seriesByType('map');
       const point = map.pointByProp('iso-a2', id);
-      if (window.prevPoint2) {
-        map.unselect(window.prevPoint2);
-      }
+
+      // select는 기존 선택을 지우고 교체하므로 이전 포인트를 따로 풀지 않는다.
       map.select(point);
-      window.prevPoint2 = point;
       const foundData = chartData.find(data => data.id === id);
       if (!foundData) {
         return;
@@ -130,9 +132,11 @@ const config = {
 };
 async function onChartLoaded(mapChart) {
   window.chartData = await fetch('https://www.realmap.co.kr/assets/data/gdp-growth-by-country.json').then(res => res.json());
-  const point = mapChart.seriesByType('map').pointByProp('iso-a2', 'KR');
-  window.prevPoint2 = point;
-  point?.setSelected(true);
+  const map = mapChart.seriesByType('map');
+  const point = map.pointByProp('iso-a2', 'KR');
+
+  // 선택 목록에도 들어가도록 플래그 대신 select API로 선택한다.
+  point && map.select(point);
   const krData = window.chartData.find(data => data.id === 'KR');
   window.realchart = RealChart.createChart(document, 'realchart', {
     options: {},
