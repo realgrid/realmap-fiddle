@@ -80,7 +80,7 @@ const config = {
   series: [{
     useMapData: true,
     tooltipText: false,
-    // hoverColor: 'var(--area-color-1)',
+    // hoverColor: 'var(--rm-area-color-1)',
     hoverStyle: {
       fill: 'inherited '
     },

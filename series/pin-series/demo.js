@@ -149,7 +149,7 @@ const config = {
   body: {
     projection: 'mercator',
     style: {
-      // fill: 'var(--area-color-1)',
+      // fill: 'var(--rm-area-color-1)',
     }
   },
   annotations: [{

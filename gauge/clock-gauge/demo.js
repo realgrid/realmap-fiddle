@@ -135,7 +135,7 @@ const config = {
     name: 'nation'
   }, {
     type: 'point',
-    pointColors: ['var(--color-1)', 'var(--color-3)', 'var(--color-4)', 'var(--color-12)'],
+    pointColors: ['var(--rm-color-1)', 'var(--rm-color-3)', 'var(--rm-color-4)', 'var(--rm-color-12)'],
     data
   }, {
     ...clockConfig,
@@ -143,7 +143,7 @@ const config = {
       offset: 10,
       // position: 'top',
       style: {
-        fill: 'var(--color-1)'
+        fill: 'var(--rm-color-1)'
       }
     },
     data: [data[0]],
@@ -153,7 +153,7 @@ const config = {
     pointLabel: {
       offset: 10,
       style: {
-        fill: 'var(--color-3)'
+        fill: 'var(--rm-color-3)'
       }
     },
     data: [data[1]]
@@ -162,7 +162,7 @@ const config = {
     pointLabel: {
       offset: 10,
       style: {
-        fill: 'var(--color-4)'
+        fill: 'var(--rm-color-4)'
       }
     },
     data: [data[2]]
@@ -171,7 +171,7 @@ const config = {
     pointLabel: {
       offset: 10,
       style: {
-        fill: 'var(--color-12)'
+        fill: 'var(--rm-color-12)'
       }
     },
     data: [data[3]]
