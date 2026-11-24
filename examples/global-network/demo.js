@@ -93,7 +93,7 @@ const config = {
     onPointClick: async e => {
       $selected = e.name;
       if ($data[e.name]) {
-        chart.series.updateOption('data', $data[e.name].map(country => ({
+        chart.series.setOption('data', $data[e.name].map(country => ({
           id: country
         })));
         // config.series[0].data = $data[e.name].map((country) => ({ id: country })),

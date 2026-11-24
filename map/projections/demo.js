@@ -64,19 +64,19 @@ function createButton(parentId, label, handler) {
 }
 function setActions(container) {
   createButton(container, '도법 미지정', async function (e) {
-    chart.body.updateOption('projection', '');
+    chart.body.setOption('projection', '');
   });
   createButton(container, '메르카토르', async function (e) {
-    chart.body.updateOption('projection', 'mercator');
+    chart.body.setOption('projection', 'mercator');
   });
   createButton(container, 'EqualEarth', async function (e) {
-    chart.body.updateOption('projection', 'equalearth');
+    chart.body.setOption('projection', 'equalearth');
   });
   createButton(container, '밀러', async function (e) {
-    chart.body.updateOption('projection', 'miller');
+    chart.body.setOption('projection', 'miller');
   });
   createButton(container, '직교투영', async function (e) {
-    chart.body.updateOption('projection', 'orthographic');
+    chart.body.setOption('projection', 'orthographic');
   });
 }
 let chart;

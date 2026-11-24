@@ -74,22 +74,22 @@ function createButton(parentId, label, handler) {
 }
 function setActions(container) {
   createButton(container, 'LEFT', async function (e) {
-    chart.body.updateOption('panX', chart.body.panX - 5);
+    chart.body.setOption('panX', chart.body.panX - 5);
   });
   createButton(container, 'RIGHT', async function (e) {
-    chart.body.updateOption('panX', chart.body.panX + 5);
+    chart.body.setOption('panX', chart.body.panX + 5);
   });
   createButton(container, 'UP', async function (e) {
-    chart.body.updateOption('panY', chart.body.panY - 5);
+    chart.body.setOption('panY', chart.body.panY - 5);
   });
   createButton(container, 'DOWN', async function (e) {
-    chart.body.updateOption('panY', chart.body.panY + 5);
+    chart.body.setOption('panY', chart.body.panY + 5);
   });
   createButton(container, 'ZOOM_IN', async function (e) {
-    chart.body.updateOption('zoom', chart.body.zoom + 5);
+    chart.body.setOption('zoom', chart.body.zoom + 5);
   });
   createButton(container, 'ZOOM_OUT', async function (e) {
-    chart.body.updateOption('zoom', chart.body.zoom - 5);
+    chart.body.setOption('zoom', chart.body.zoom - 5);
   });
 }
 let chart;

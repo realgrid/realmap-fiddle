@@ -42,7 +42,7 @@ const config = {
       }
       let step = 10;
       if (args.zoom > 400) step = 5;else if (args.zoom > 200) step = 10;else step = 20;
-      chart.updateOptions({
+      chart.mergeOptions({
         axis: {
           grid: {
             line: {
